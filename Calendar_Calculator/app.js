@@ -1,9 +1,11 @@
+// Get DOM elements
 const  year = document.getElementById('year');
 const month = document.getElementById('month');
 const date = document.getElementById('date');
 const btn = document.getElementById('btn');
 const dayOutput = document.querySelector('.day');
 
+// Don't allow letters 
 const removeLetters = () => {
 const number = /[^0-9]/gi;
 year.value = year.value.replace(number, '');
@@ -14,6 +16,7 @@ year.addEventListener('input', () => removeLetters());
 
 date.addEventListener('input',() => removeLetters());
 
+// Output the day
 const outputDay = (day) => {
     dayOutput.innerHTML = `
     <h1>${day}</h1>
@@ -30,6 +33,7 @@ const outputDay = (day) => {
     dayOutput.style.fontSize = '20px';
 }
 
+// If any input is empty ask the user to fill all fields
 const validateMessage = (message) => {
     dayOutput.innerHTML = `
     <h1>${message}</h1>
@@ -47,7 +51,9 @@ const validateMessage = (message) => {
     dayOutput.style.fontSize = '20px';
 }
 
+// Compute the day by taking in the year code
 const computeDay = (yearCode) => {
+    // Compute month code based on month     
     let monthCode;
     if(month.value === 'January' && year.value % 4 !== 0){
         monthCode = 6;
@@ -78,33 +84,36 @@ const computeDay = (yearCode) => {
     }else if(month.value === 'December'){
         monthCode = 4;
     }
-    
-    const dayInt = monthCode + parseInt(date.value) + yearCode; 
+         
+    // Compute the day code 
+    const dayCode = monthCode + parseInt(date.value) + yearCode; 
 
-    if(dayInt % 7 === 0){
+    // Determine day based on day code     
+    if(dayCode % 7 === 0){
         const day = 'Sunday';
         outputDay(day);
-    }else if(dayInt % 7 === 1){
+    }else if(dayCode % 7 === 1){
         const day = 'Monday';
         outputDay(day);
-    }else if(dayInt % 7 === 2){
+    }else if(dayCode % 7 === 2){
         const day = 'Tuesday';
         outputDay(day);
-    }else if(dayInt % 7 === 3){
+    }else if(dayCode % 7 === 3){
         const day = 'Wednesday';
         outputDay(day);
-    }else if(dayInt % 7 === 4){
+    }else if(dayCode % 7 === 4){
         const day = 'Thursday';
         outputDay(day);
-    }else if(dayInt % 7 === 5){
+    }else if(dayCode % 7 === 5){
         const day = 'Friday';
         outputDay(day);
-    }else if(dayInt % 7 === 6){
+    }else if(dayCode % 7 === 6){
         const day = 'Saturday';
         outputDay(day);
     }
 }
 
+// Compute year code
 const computeYearCode = () => {
     if(year.value === '' || date.value === ''){
         validateMessage('Please enter all fields');
@@ -117,14 +126,15 @@ const computeYearCode = () => {
         const by4 = Math.floor(lastTwo/4);
         const add = lastTwo+by4;
         let yearCode = add % 7;
-
-        if(parseInt(year.value.slice(0, 2)) % 4 === 0){
+        
+        let firstTwo = parseInt(year.value.slice(0, 2));
+        if(firstTwo % 4 === 0){
             yearCode += 0;
-        }else if(parseInt(year.value.slice(0, 2)) % 4 === 1){
+        }else if(firstTwo % 4 === 1){
             yearCode += 5;
-        }else if(parseInt(year.value.slice(0, 2)) % 4 === 2){
+        }else if(firstTwo % 4 === 2){
             yearCode += 3;
-        }else if(parseInt(year.value.slice(0, 2)) % 4 === 3){
+        }else if(firstTwo % 4 === 3){
             yearCode += 1;
         }
 
