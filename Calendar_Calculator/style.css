@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@500&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Lexend", sans-serif;
+}
+
+header {
+  text-align: center;
+  background-color: #2dbae9;
+  color: white;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+header img {
+  width: 10%;
+  height: 10%;
+}
+
+.container {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 10px;
+  font-size: 35px;
+}
+
+.container .container-child {
+  margin-top: 20px;
+}
+
+.container input {
+  height: 30px;
+  font-size: 35px;
+  border: 3px #13b4f3 solid;
+  outline: #13b4f3;
+  padding: 15px;
+}
+
+.container select {
+  width: 300px;
+  height: 50px;
+  border: 3px #13b4f3 solid;
+  outline: #13b4f3;
+  font-size: 35px;
+}
+
+.container button {
+  height: 50px;
+  width: 100%;
+  background-color: #19df7c;
+  font-size: 35px;
+  border: none;
+  outline: #13b4f3;
+  padding: auto;
+}
+/*# sourceMappingURL=style.css.map */

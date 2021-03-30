@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@500&display=swap');
+
+$main-font: 'Lexend', sans-serif;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $main-font;
+}
+
+header{
+    text-align: center;
+    background-color: rgb(45, 186, 233);
+    color: white;
+    font-size: 20px;
+    letter-spacing: 2px;
+
+    img{
+        width: 10%;
+        height: 10%;
+    }
+}
+
+.container{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 35px;
+
+    .container-child{
+     margin-top: 20px;   
+    }
+
+    input{
+    height: 30px;
+    font-size: 35px;
+    border: 3px rgb(19, 180, 243) solid;
+    outline: rgb(19, 180, 243);
+    padding: 15px;
+    }    
+
+    select{
+        width: 300px;
+        height: 50px;
+        border: 3px rgb(19, 180, 243) solid;
+        outline: rgb(19, 180, 243);    
+        font-size: 35px;
+    }
+
+    button{
+        height: 50px;
+        width: 100%;
+        background-color: rgb(25, 223, 124);
+        font-size: 35px;
+        border: none;
+        outline: rgb(19, 180, 243);
+        padding: auto;
+        // opacity: rgb(255, 65, 65);
+    }   
+}
